@@ -1,11 +1,24 @@
-//first component , parent , root
+import { useState } from "react";
+import First from './Component/First';
 
-const App = () => {
-    return (
+const App = () =>{
+    const[checked,setCheck] = useState(false);
+
+    const checkHandler =()=>{
+       setCheck(!checked);
+    }
+
+    const mountUnmout = () =>{
+        if(checked){
+            return <First/>
+        }
+    }
+    return(
         <div>
-            Hii, This is an App component 
+               Mount/Unmount Component<input type="checkbox" onChange={checkHandler} />
+               {mountUnmout()}             
         </div>
     )
-};
+}
 
 export default App;
