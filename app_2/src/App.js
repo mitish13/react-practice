@@ -10,10 +10,6 @@ const App = () => {
 
   const id = Math.round(Math.random() * 100);
 
-  const validateInput = () => {
-    addIntro();
-  };
-
   const addIntro = () => {
     if (!editIntro) {
       setIntro([{ id: id, name: name, age: age }, ...intro]);
@@ -34,7 +30,7 @@ const App = () => {
 
   const ClickHandler = (e) => {
     e.preventDefault();
-    validateInput();
+    addIntro();
   };
   return (
     <div style={containerStyle()}>
