@@ -1,13 +1,11 @@
 //3 event: install , fetch , active
 // 'this' object refers to ServiceWorker class, creates first time when sw registered into app
 const cacheName = "v1";
-const cacheAssests = ["index.html", "offline.html"];
-
-console.log(this);
+const cacheAssests = ["/index.html", "/offline.html"];
 
 this.addEventListener("install", (e) => {
   //calls once when sw object created (registered)
-
+  console.log("SW installing...");
   e.waitUntil(
     caches
       .open(cacheName)
@@ -20,24 +18,25 @@ this.addEventListener("install", (e) => {
   );
 });
 
+//By doing this we can provide "offline page"
 this.addEventListener("fetch", (e) => {
-  //will not called implicitly
   //respondWith: prevents browser default beh of fetching
   console.log(`fetch triggered: request: ${e}`);
   e.respondWith(
     caches
       .match(e.request)
       .then(() => {
-        return fetch(e.request);
+        return fetch(e.request); //uses network;
       })
       .catch(() => caches.match("offline.html"))
   );
 });
 
+console.log(this.caches.keys().then((data) => console.log(data)));
 this.addEventListener("active", (e) => {
   //active will try to active serviceworker
-  console.log("active event triggered");
 
+  console.log("active event triggered");
   const cacheList = [];
   cacheList.push(cacheName);
 

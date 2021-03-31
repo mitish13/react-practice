@@ -9,9 +9,7 @@ const App = () => {
   const [editIntro, setEditIntro] = useState();
 
   const id = Math.round(Math.random() * 100);
-  const jsx = () => {
-    return <p>Hello</p>;
-  };
+
   const addIntro = () => {
     if (!editIntro) {
       setIntro([{ id: id, name: name, age: age }, ...intro]);
