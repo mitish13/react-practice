@@ -1,11 +1,21 @@
 import React from "react";
-import Input from "./components/Input";
+import Form from "./Components/Form";
+import { Typography, Container } from "@material-ui/core";
+import { useStyle } from "./styles";
+import Tasks from "./Components/Tasks";
 
 const App = () => {
+  const classes = useStyle();
   return (
     <div>
-      <h1>Header</h1>
-      <Input />
+      <Typography variant="h4" className={classes.heading}>
+        &lt;Task Manager/&gt;
+      </Typography>
+      <hr />
+      <Container maxWidth="md">
+        <Form />
+        <Tasks />
+      </Container>
     </div>
   );
 };
