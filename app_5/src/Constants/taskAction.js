@@ -7,3 +7,4 @@ export const EDIT_TASK = "EDIT_TASK";
 
 export const TRACK_CHANGE_TASK = "CHANGE_TASK";
 export const TRACK_CHANGE_DATE = "CHANGE_DATE";
+export const TOGGLE_AUTH = "TOGGLE_AUTH";

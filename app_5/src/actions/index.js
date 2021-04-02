@@ -40,3 +40,9 @@ export const trackChangeTask = (task) => {
     payload: task,
   };
 };
+
+export const toggleAuth = () => {
+  return {
+    type: constants.TOGGLE_AUTH,
+  };
+};
