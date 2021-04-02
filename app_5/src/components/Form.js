@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TextField, Button, Container } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { useStyle } from "../styles";
@@ -15,6 +15,10 @@ const Form = () => {
     task: "",
     date: "",
   });
+
+  useEffect(() => {
+    if (taskToEdit) setState({ task: taskToEdit.task, date: taskToEdit.date });
+  }, [taskToEdit]);
 
   const changeHandler = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });

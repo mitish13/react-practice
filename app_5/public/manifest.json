@@ -1,6 +1,6 @@
 {
-    "short_name": "crud App",
-    "name": "crud App PWA",
+    "short_name": "Task manager",
+    "name": "Task manager-redux",
     "icons": [
         {
             "src": "/images/download.png",
