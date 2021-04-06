@@ -1,13 +1,11 @@
 const { credential } = require("firebase-admin");
 var admin = require("firebase-admin");
 var serviceAccount = require("./fcmdemo-89ec1-firebase-adminsdk-vgv4a-9e3ad91fdc.json");
+var registrationToken = require("./token.json");
 
 admin.initializeApp({
   credential: credential.cert(serviceAccount),
 });
-
-var registrationToken =
-  " cOVh9EftQS8KthZVJOHnJS:APA91bEontU46lcQgZAYXcUbQVM4vG4S2G-Gn5f9TQ5gZqhhIoY1FZ5FEvmYsvnjif50IujLbd8WpCBgHkMKOQ1bXo7xwLkOq-WKEFItg_PeZfAFWOoxsoPoGboOc2c1bCwRgiAi08q7";
 
 var payload = {
   notification: {
@@ -18,6 +16,9 @@ var payload = {
 
 admin
   .messaging()
-  .sendToDevice(registrationToken, payload)
+  .sendToDevice(
+    registrationToken["registration-token"].map((item) => item.token),
+    payload
+  )
   .then((res) => console.log(res))
   .catch((err) => console.log(err));

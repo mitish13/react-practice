@@ -1,6 +1,7 @@
 import React from "react";
 import firebase from "./fireabase";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -8,7 +9,9 @@ const App = () => {
     firebase
       .messaging()
       .getToken()
-      .then((token) => setToken(token))
+      .then((token) =>
+        axios.post("http://localhost:3005/registration-token", { token: token })
+      )
       .catch((err) => console.log(err));
   });
 
