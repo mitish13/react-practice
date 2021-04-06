@@ -17,7 +17,8 @@ const App = () => {
 
   return (
     <div>
-      Hello+ {token} <br />
+      Hello, Check the console
+      <br />
       <br />
     </div>
   );

@@ -73,7 +73,7 @@ const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(
   (payload) => {
-    console.log(payload + "  hello mf");
+    console.log(payload + "This is from background event");
   },
   (err) => console.log(err)
 );
