@@ -1,3 +1,0 @@
-export const FETCH_CONTACTS = "FETCH_CONTACTS";
-export const DELETE_CONTACT = "DELETE_CONTACT";
-export const SPINNER = "SPINNER";
