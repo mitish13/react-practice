@@ -1,0 +1,1 @@
+## This app consists one small example that showcase how to make single page application that works like multipage application using npm package called 'React-router-dom'
