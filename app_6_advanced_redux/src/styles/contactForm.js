@@ -1,23 +1,10 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  card: {
-    border: "1px solid gray",
-    marginTop: "10px",
-    borderRadius: "10px",
-    float: "left",
-    backgroundColor: "rgba(200,200,200,0.5)",
-  },
-  [theme.breakpoints.only("lg")]: {
-    card: {
-      marginRight: "10px",
-    },
-  },
-
   heading: {
-    color: "#002884",
+    color: "royalblue",
     fontFamily: "'Courier New', 'monospace'",
-    backgroundColor: "rgba(200,200,200,0.5)",
+    backgroundColor: "black",
     borderRadius: "10px",
     textAlign: "center",
     paddingTop: "10px",

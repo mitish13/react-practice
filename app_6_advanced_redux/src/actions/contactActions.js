@@ -5,9 +5,9 @@ export const fetchContacts = () => {
   return (dispatch) => {
     axios
       .get("/contacts") // baseurl :
-      .then((res) => {
+      .then(({ data }) => {
         dispatch(spinner(false));
-        dispatch(getContacts(res.data));
+        dispatch(getContacts(data));
       })
       .catch((e) => console.log(e));
   };
@@ -41,6 +41,13 @@ export const deleteContact = (id) => {
 export const spinner = (value) => {
   return {
     type: constant.SPINNER,
+    payload: value,
+  };
+};
+
+export const searchContact = (value) => {
+  return {
+    type: constant.SEARCH_CONTACT,
     payload: value,
   };
 };

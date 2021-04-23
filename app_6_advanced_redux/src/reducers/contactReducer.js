@@ -1,7 +1,7 @@
 import * as constant from "../constants/actionTypes";
 
 const initialState = {
-  contacts: "",
+  contacts: [],
 };
 export const contactReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -13,6 +13,12 @@ export const contactReducer = (state = initialState, action) => {
       return {
         contacts: state.contacts.filter(
           (contact) => contact.id !== action.payload
+        ),
+      };
+    case constant.SEARCH_CONTACT:
+      return {
+        contacts: state.contacts.filter((contact) =>
+          contact.name.includes(action.payload)
         ),
       };
     default:
